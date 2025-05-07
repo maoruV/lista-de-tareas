@@ -1,0 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    background: url(imagenes/fondo3.jpg) no-repeat center center/cover;
+}
+
+.contenedor {
+    width: 800px;
+    min-height: 500px;
+    background-color: rgb(129, 122, 122);
+    padding: 40px;
+    border: 5px solid black;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 10), 0 6px 20px rgba(0, 0, 0, 10);
+
+}
+
+
+
+h1 {
+    font-family: "Honk", system-ui;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+h2 {
+    font-family: "Honk", system-ui;
+    font-size: 50px;
+    padding: 30px;
+}
+
+.texto-bienvenida {
+    font-family: "Tagesschrift", system-ui;
+    color: white;
+    font-size: 2em;
+    padding: 20px;
+}
+
+input {
+    width: 80%;
+    height: 50px;
+    font-size: 25px;
+    margin: 20px;
+    padding: 20px;
+    border: 4px solid #404040;
+    border-radius: 10px;
+
+
+}
+
+button {
+    width: 150px;
+    height: 60px;
+    padding: 10px;
+    color: white;
+    background-color: #0c0ceb;
+    font-size: 22px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+#lista-de-tareas {
+    width: 80%;
+    margin-top: 20px;
+
+}
+
+.tarea {
+    width: 100%;
+    min-height: 70px;
+    font-size: 25px;
+    padding: 10px;
+    margin-top: 10px;
+    color: white;
+    background-color: #407ba6;
+    border: 2px solid black;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+/* Tarea completada */
+
+.tarea.completada {
+    text-decoration: line-through;
+    background-color: black;
+    border: none;
+}
+
+.tarea p {
+    max-width: 350px;
+}
+
+/* Iconos */
+
+i {
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.icono-completar {
+    color: rgb(0, 255, 0);
+}
+
+.icono-editar {
+    color: rgb(206, 252, 2);
+}
+
+.icono-eliminar {
+    color: white;
+}
+
+.icono-completar:hover,
+.icono-eliminar:hover,
+.icono-editar:hover {
+    background-color: rgb(255, 255, 255, 0.523);
+}
+
+.contenedor-inferior {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+@media (max-width: 768px) {
+    .contenedor {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h1,
+    h2 {
+        font-size: 40px;
+    }
+
+    .texto-bienvenida {
+        font-size: 1.5em;
+    }
+
+    input {
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    button {
+        width: 120px;
+        height: 50px;
+        font-size: 18px;
+    }
+
+    .tarea {
+        font-size: 20px;
+        padding: 8px;
+    }
+
+    .tarea p {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contenedor {
+        width: 100%;
+        padding: 15px;
+    }
+
+    h1,
+    h2 {
+        font-size: 30px;
+    }
+
+    .texto-bienvenida {
+        font-size: 1.2em;
+    }
+
+    input {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    button {
+        width: 100px;
+        height: 40px;
+        font-size: 12px;
+    }
+
+    .tarea {
+        font-size: 18px;
+        padding: 5px;
+    }
+
+    .tarea p {
+        max-width: 200px;
+    }
+}

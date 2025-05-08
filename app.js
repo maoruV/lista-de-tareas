@@ -58,6 +58,7 @@ function agregarTarea() {
         completar.classList.add('bi', 'bi-check-circle-fill', 'icono-completar');
         completar.addEventListener('click', tareaCompletada);
 
+
         let editar = document.createElement('i');
         editar.classList.add('bi', 'bi-arrow-clockwise', 'icono-editar')
         editar.addEventListener('click', editarTarea)
@@ -101,6 +102,20 @@ document.addEventListener('click', (e) => {
 function tareaCompletada(e) {
     let tarea = e.target.parentNode.parentNode;
     tarea.classList.toggle('completada');
+    if (tarea.classList.contains('completada')) {
+        const iconoEditar = tarea.querySelector('.icono-editar');
+        if (iconoEditar) {
+            iconoEditar.remove();
+        }
+    } else {
+        // Si se desmarca como completada, agregar el icono de editar nuevamente
+        const iconos = tarea.querySelector('.iconos');
+        const editar = document.createElement('i');
+        editar.classList.add('bi', 'bi-arrow-clockwise', 'icono-editar');
+        editar.addEventListener('click', editarTarea);
+        iconos.appendChild(editar);
+    }
+
 }
 
 

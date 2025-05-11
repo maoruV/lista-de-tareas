@@ -156,3 +156,64 @@ input.addEventListener('keydown', (e) => {
 
 
 
+function guardarTareas() {
+    const tareas = [];
+    listaDeTarea.querySelectorAll('.tarea').forEach(tarea => {
+        const texto = tarea.querySelector('p').innerText;
+        const completada = tarea.classList.contains('completada');
+        tareas.push({ texto, completada });
+    });
+    localStorage.setItem('tareas', JSON.stringify(tareas));
+}
+
+function cargarTareas() {
+    const tareasGuardadas = JSON.parse(localStorage.getItem('tareas')) || [];
+    tareasGuardadas.forEach(tarea => {
+        let tareaNueva = document.createElement('div');
+        tareaNueva.classList.add('tarea');
+        if (tarea.completada) {
+            tareaNueva.classList.add('completada');
+        }
+
+        let texto = document.createElement('p');
+        texto.innerText = tarea.texto;
+        tareaNueva.appendChild(texto);
+
+        let iconos = document.createElement('div');
+        iconos.classList.add('iconos');
+        tareaNueva.appendChild(iconos);
+
+        let completar = document.createElement('i');
+        completar.classList.add('bi', 'bi-check-circle-fill', 'icono-completar');
+        completar.addEventListener('click', tareaCompletada);
+
+        let editar = document.createElement('i');
+        editar.classList.add('bi', 'bi-arrow-clockwise', 'icono-editar');
+        editar.addEventListener('click', editarTarea);
+
+        let eliminar = document.createElement('i');
+        eliminar.classList.add('bi', 'bi-trash3-fill', 'icono-eliminar');
+        eliminar.addEventListener('click', tareaEliminada);
+
+        iconos.append(completar, editar, eliminar);
+
+        if (tarea.completada) {
+            editar.remove();
+        }
+
+        listaDeTarea.appendChild(tareaNueva);
+    });
+
+    actualizarConteo();
+    actualizarCompletadas();
+}
+
+document.addEventListener('click', (e) => {
+    if (
+        e.target.classList.contains('icono-eliminar') ||
+        e.target.classList.contains('icono-editar') ||
+        e.target.classList.contains('icono-completar')
+    ) {
+        guardarTareas();
+    }
+});

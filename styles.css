@@ -39,7 +39,7 @@ h1 {
 }
 
 h2 {
-    font-family: "Honk", system-ui sans-serif;
+    font-family: "Honk", system-ui, sans-serif;
     font-size: 50px;
     padding: 30px;
 }

@@ -8,6 +8,8 @@ const seccionBienvenido = document.getElementById('bienvenido')
 const seccionTareas = document.getElementById('tareas')
 const inputNombre = document.getElementById('nombre')
 
+cargarTareas()
+
 seccionBienvenido.style.display = 'block'
 seccionTareas.style.display = 'none';
 
@@ -76,6 +78,7 @@ function agregarTarea() {
     } else {
         alert("Ingresa una tarea");
     }
+    guardarTareas()
     input.value = ""
     // Actualizar el conteo de tareas
     actualizarConteo();

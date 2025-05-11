@@ -25,6 +25,7 @@ function agregarNombre() {
     } else {
         alert("Por favor, ingresa tu nombre.");
     }
+
 }
 
 botonNombre.addEventListener('click', agregarNombre)
@@ -156,8 +157,6 @@ input.addEventListener('keydown', (e) => {
     }
 
 });
-
-
 
 function guardarTareas() {
     const tareas = [];
